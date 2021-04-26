@@ -1,12 +1,12 @@
-from  random import randint , choice
+from  random import  choice
 
 # definition de la classe Agent
 class Agent:
 	# constructeur de l'agent
 	def __init__ (self,plateau):
 		# la position de la case ou se trouve l'agent
-		self.x = randint(0,plateau.w-1)
-		self.y = randint(0,plateau.h-1)
+		self.x = random.randint(0,plateau.w-1)
+		self.y = random.randint(0,plateau.h-1)
 		self.plateau = plateau
 
 		
