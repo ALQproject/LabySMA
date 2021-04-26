@@ -64,8 +64,8 @@ class Plateau:
 	# **/
 	def creation_plateau(self,x=-1,y=-1):
 		if x==-1:
-			x = randint(0,self.w-1)
-			y = randint(0,self.h-1)
+			x = rnd.randint(0,self.w-1)
+			y = rnd.randint(0,self.h-1)
 		cell_act = self.cases[x +  y * self.w]
 		if not cell_act.state :
 			cell_act.state = True
