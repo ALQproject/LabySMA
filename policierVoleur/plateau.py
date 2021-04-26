@@ -8,7 +8,13 @@ white  = (255,255,255)
 black  = (0,0,0)
 red = (255, 0, 0)
 
-# definition de la classe Plateau
+##
+ # * ********************************************************************************************************************
+ # * *
+ # * * * PLateau  : classe qui gère le plateau où se déroule le jeu
+ # * *
+ # *********************************************************************************************************************
+ # **/
 class Plateau:
 	# constructeur du plateau
 	def __init__ (self,w,h,wc,hc, nb_cachettes):
@@ -32,7 +38,14 @@ class Plateau:
 				case.y = j
 				self.cases+=[case]
 
-	# definir un nombre N de cachettes 
+	##
+	# * ********************************************************************************************************************
+	# * * * set_cachettes : fonction qui permet de définir les cachettes où le voleur ets invisible
+	# * * * Input   : instance courante
+	# * * * Output  : vide
+	# * 
+	# *********************************************************************************************************************
+	# **/ 
 	def set_cachettes(self):
 		for i in range(self.nb_cachettes):
 			rand_x = rnd.randrange(0,self.w)
@@ -41,7 +54,14 @@ class Plateau:
 			
 
 		
-	# creation du labyrinthe
+	##
+	# * ********************************************************************************************************************
+	# * * * creation_plateau : fonction qui permet de générer le labyrinthe où se déroule le jeu
+	# * * * Input   : les coordonnées de départ
+	# * * * Output  : vide
+	# * 
+	# *********************************************************************************************************************
+	# **/
 	def creation_plateau(self,x=-1,y=-1):
 		if x==-1:
 			x = randint(0,self.w-1)
@@ -100,7 +120,14 @@ class Plateau:
 				return False
 		
 		
-	# affichage de plateau
+	##
+	# * ********************************************************************************************************************
+	# * * * afficher : fonction qui permet d'afficher le labyrinthe généré
+	# * * * Input   : string déterminant la direction de déplacement
+	# * * * Output  : vide
+	# * 
+	# *********************************************************************************************************************
+	# **/
 	def afficher(self,surface):
 		# dessiner les limites du plateau
 		pygame.draw.rect (surface , black , (0 , 0 , self.wc * self.w , self.hc * self.h),2)
@@ -119,7 +146,15 @@ class Plateau:
 				if case.cachette == True:
 					#pygame.draw.rect(surface, red,(37 * self.wc , 19 * self.hc, self.wc, self.hc))
 					pygame.draw.rect(surface, red,(case.x * self.wc , case.y * self.hc, self.wc, self.hc))
-					
+
+	##
+	# * ********************************************************************************************************************
+	# * * * get_mur : fonction qui permet de retourner le mur selon les coordonnées de la case et le numéro du mur
+	# * * * Input   : coordonnées, numéro du mur
+	# * * * Output  : vide
+	# * 
+	# *********************************************************************************************************************
+	# **/			
 	def get_mur(self, x, y, num):
 		if num == 0:
 			return self.cases[x + y * self.w].mur_droite, "droite"

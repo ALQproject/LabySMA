@@ -2,12 +2,28 @@ from policierVoleur import agent as ag
 import pygame
 from pygame.locals import *
 
+##
+ # * ********************************************************************************************************************
+ # * *
+ # * * * Voleur  : classe qui gère les attributs et méthodes du voleur et qui hérite de Agent
+ # * *
+ # *********************************************************************************************************************
+ # **/
 class Voleur(ag.Agent):
+	#constructeur de voleur
 	def __init__(self, plateau):
 		ag.Agent.__init__(self, plateau)
 		self.libre = True
 	
-	# affichage de la personnage	
+
+	##
+	# * ********************************************************************************************************************
+	# * * * affihcer : fonction qui permet d'afficher un voleur
+	# * * * Input   : surface de déplacement
+	# * * * Output  : vide
+	# * 
+	# *********************************************************************************************************************
+	# **/		
 	def afficher(self,surface):
 		path = "icons/voleur.png"
 		# importer l'image

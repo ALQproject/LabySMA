@@ -1,16 +1,31 @@
-from  random import  choice
+from  random import randint , choice
+
+##
+ # * ********************************************************************************************************************
+ # * *
+ # * * * Agent  : classe qui gère les attributs et méthodes en commun entre les policiers et les voleurs
+ # * *
+ # *********************************************************************************************************************
+ # **/
 
 # definition de la classe Agent
 class Agent:
 	# constructeur de l'agent
 	def __init__ (self,plateau):
 		# la position de la case ou se trouve l'agent
-		self.x = random.randint(0,plateau.w-1)
-		self.y = random.randint(0,plateau.h-1)
+		self.x = randint(0,plateau.w-1)
+		self.y = randint(0,plateau.h-1)
 		self.plateau = plateau
 
-		
-	#  deplacement de l'agent
+	
+	##
+	# * ********************************************************************************************************************
+	# * * * deplacer : fonction qui permet de déplacer un agent
+	# * * * Input   : string déterminant la direction de déplacement
+	# * * * Output  : vide
+	# * 
+	# *********************************************************************************************************************
+	# **/
 	def deplacer(self,dir) :	
 		if dir == "droite"  :
 			if self.x+1 < self.plateau.w and not self.plateau.cases[self.x +  self.y * self.plateau.w].mur_droite:

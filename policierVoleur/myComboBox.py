@@ -14,8 +14,17 @@ active = (100, 200, 255)
 list_inactive = (255, 100, 100)
 list_active = (255, 150, 150)
 
+
+##
+ # * ********************************************************************************************************************
+ # * *
+ # * * * MyComboBox  : classe qui gère les menus déroulants de la page d'accueil
+ # * *
+ # *********************************************************************************************************************
+ # **/
 class MyComboBox():
 
+    #constructeur de comboBox
     def __init__(self, color_menu, color_option, x, y, w, h, font, main, options):
         self.color_menu = color_menu
         self.color_option = color_option
@@ -27,6 +36,14 @@ class MyComboBox():
         self.menu_active = False
         self.active_option = -1
 
+    ##
+	# * ********************************************************************************************************************
+	# * * * deplacer : fonction qui permet de dessiner le bouton du menu
+	# * * * Input   : surface d'affichage
+	# * * * Output  : vide
+	# * 
+	# *********************************************************************************************************************
+	# **/
     def draw(self, surf):
         pygame.draw.rect(surf, self.color_menu[self.menu_active], self.rect, 0)
         msg = self.font.render(self.main, 1, (0, 0, 0))
@@ -40,6 +57,14 @@ class MyComboBox():
                 msg = self.font.render(text, 1, (0, 0, 0))
                 surf.blit(msg, msg.get_rect(center = rect.center))
 
+    ##
+	# * ********************************************************************************************************************
+	# * * * deplacer : fonction qui permet de mettre  jour le bouton du menu
+	# * * * Input   : une liste d'événement réalisés par l'utilisateur
+	# * * * Output  : vide
+	# * 
+	# *********************************************************************************************************************
+	# **/
     def update(self, event_list):
         mpos = pygame.mouse.get_pos()
         self.menu_active = self.rect.collidepoint(mpos)
